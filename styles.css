@@ -628,6 +628,32 @@ body {
     margin-top: 0.25rem;
 }
 
+.receipt-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.print-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.print-btn:hover {
+    background: var(--primary-dark);
+}
+
 .new-order-btn {
     width: 100%;
     padding: 1rem;
@@ -642,6 +668,72 @@ body {
 
 .new-order-btn:hover {
     background: var(--gray-700);
+}
+
+/* Print Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .receipt-container,
+    .receipt-container * {
+        visibility: visible;
+    }
+
+    .receipt-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80mm;
+        max-width: 80mm;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .receipt-header {
+        background: white !important;
+        color: black !important;
+        padding: 10px;
+        border-bottom: 2px dashed #000;
+    }
+
+    .receipt-header h2,
+    .receipt-header p {
+        color: black !important;
+    }
+
+    .success-icon {
+        display: none;
+    }
+
+    .receipt-buttons {
+        display: none !important;
+    }
+
+    .receipt-notice {
+        background: white !important;
+        border: 2px dashed #000 !important;
+    }
+
+    .receipt-notice p,
+    .receipt-notice .lv {
+        color: black !important;
+    }
+
+    .order-number {
+        font-size: 2rem;
+    }
+
+    .receipt-items {
+        background: white;
+        max-height: none;
+        border: 1px solid #ccc;
+    }
+
+    .receipt-total span:last-child {
+        color: black;
+    }
 }
 
 /* Modal */

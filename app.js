@@ -545,6 +545,11 @@ function startNewOrder() {
     updateCartUI();
 }
 
+// Print Receipt Function
+function printReceipt() {
+    window.print();
+}
+
 // Close modal on outside click
 document.getElementById('item-modal').addEventListener('click', (e) => {
     if (e.target.id === 'item-modal') {
